@@ -36,9 +36,9 @@ class DeepgramLiveListener {
   Timer? _keepAliveTimer;
 
   /// Start the transcription process.
-  Future<void> start() async {
+  Future<void> start({String? baseUrl}) async {
     _wsChannel = WebSocketChannel.connect(
-      buildUrl(_baseLiveUrl, null, queryParams),
+      buildUrl(baseUrl ?? _baseLiveUrl, null, queryParams),
       protocols: ['token', apiKey],
     );
 
